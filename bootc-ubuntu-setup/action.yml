@@ -1,6 +1,11 @@
 name: 'Bootc Ubuntu Setup'
 description: 'Default host setup'
 inputs:
+  freespace:
+    description: 'Free up disk space'
+    type: boolean
+    required: false
+    default: true
   libvirt:
     description: 'Install libvirt and virtualization stack'
     type: boolean
@@ -11,6 +16,7 @@ runs:
   steps:
     # The default runners have TONS of crud on them...
     - name: Free up disk space on runner
+      if: ${{ inputs.freespace == 'true' }}
       shell: bash
       run: |
         set -xeuo pipefail
