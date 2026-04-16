@@ -3,8 +3,9 @@ description: 'Default host setup'
 inputs:
   libvirt:
     description: 'Install libvirt and virtualization stack'
+    type: boolean
     required: false
-    default: 'false'
+    default: false
 runs:
   using: 'composite'
   steps:
